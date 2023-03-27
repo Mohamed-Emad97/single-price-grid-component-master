@@ -1,0 +1,118 @@
+//Import Font
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap');
+
+//Variblies
+$Cyan: hsl(179, 62%, 43%);
+$Bright-Yellow: hsl(71, 73%, 54%);
+$Light-Gray: hsl(204, 43%, 93%);
+$Grayish-Blue: hsl(218, 22%, 67%);
+$Font-size: 16px;
+
+
+//Rules
+body{
+  font-family: 'Karla', sans-serif;
+  font-size: $Font-size;
+  background-color: $Light-Gray;
+  .center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  h2{
+    font-weight: 700;
+  }
+  main{
+    section{
+      .priceCard{
+        width: 80%;
+        background-color: #fff;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(150px , 1fr));
+        grid-template-areas: "join join" "sub about";
+        .join{
+          grid-area: join;
+          h2{
+            color: $Cyan;
+          }
+          p{
+            color: $Bright-Yellow;
+          }
+          .desc{
+            padding-right: 10rem;
+            color: $Grayish-Blue;
+          }
+        }
+        .sub{
+          grid-area: sub;
+          background-color: $Cyan;
+          color: #fff;
+          h2{
+            font-size: 1.5rem;
+          }
+          p{
+            .price{
+              margin-right: 1rem;
+              font-weight: 700;
+              font-size: 3rem;
+            }
+          }
+          .subBtn{
+            outline: none;
+            border: 1px solid $Bright-Yellow;
+            background-color: $Bright-Yellow;
+            color: #fff;
+            width: 100%;
+            transition: all 1s;
+            &:hover{
+              background-color: transparent;
+            }
+          }
+        }
+        .about{
+          grid-area: about;
+          background-color: rgba($Cyan , 0.7);
+          color: #fff;
+          p{
+            padding-right: 5rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@media (max-width: 992px) {
+  body{
+    main{
+      section{
+        .priceCard{
+          .about{
+            p{
+              padding-right: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  body{
+    main{
+      section{
+        .priceCard{
+          grid-template-columns: minmax(150px , 1fr);
+          grid-template-areas: "join" "sub" "about";
+          .join{
+            .desc{
+              padding-right: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
